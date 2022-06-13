@@ -1,0 +1,295 @@
+/*==========*/
+/* Variable */
+/*==========*/
+:root{
+    /* Couleur de fond des éléments */
+    --CouleurNav  : rgb(114, 21, 21);
+    --couleurEns  : gray;
+    --couleurPage : white;
+
+    /* couleur des textes */
+    --couleurTxtEns : black;
+    --couleurTxtNav : white;
+
+    /* Couleur des ronds des langages */
+    --couleurRondVide  : rgba(187, 187, 187, 0.45);
+    --couleurRondPlein : white;
+
+    /* Ensemble de la page */
+    --hgapPage  : 150px;
+    --vgapPage  : 50px;
+    --tailleTxt : 16px;
+
+    /* Taille des éléments du corps de la page */
+    --vgapList : 20px;
+
+    /* Taille des éléments de la barre de navigation (gauche de la page) */
+    --tailleNav     : 280px;
+    --tailleImg     : 80px;
+    --tailleLangage : 60px;
+    --tailleRond    : 15px;
+
+
+    /* décalage des éléments */
+    --decalTitre   : 20px; /* Décalage des titres dans le corps de la page */
+    --decalList    : 30px; /* Décalage de la liste dans la barre de navigation */
+    --decalPara    : 40px; /* Décalage des paragraphes et des listes dans le corps de la page */
+    --decalcellule : 40px; /* Décalage horizontal des éléments à l'intérieur du tableau */
+}
+
+
+
+/*=====================*/
+/* Ensemble de la page */
+/*=====================*/
+*{
+    box-sizing : border-box;
+    padding    : 0px;
+}
+
+html {
+    background-color : var(--couleurEns);
+    font-family      : Arial, Helvetica, sans-serif;
+    font-size        : var(--tailleTxt);
+}
+
+body {
+    background-color : var(--couleurPage);
+    margin-left      : var(--hgapPage);
+    margin-right     : var(--hgapPage);
+    margin-bottom    : var(--vgapPage);
+    margin-top       : var(--vgapPage);
+    display          : flex;
+}
+
+
+
+/*================================*/
+/* Navigation (gauche de la page) */
+/*================================*/
+/*-----------------------------------------*/
+/* Ensemble de la partie gauche de la page */
+/*-----------------------------------------*/
+.nav{
+    width            : var(--tailleNav);
+    background-color : var(--CouleurNav);
+}
+
+.nav *{
+    color : var(--couleurTxtNav);
+}
+
+/* Style des listes */
+.nav li{
+    margin-top : 10px;
+    list-style : none;
+}
+
+/* Style des lignes de séparation */
+.nav > hr{
+    margin-top    : 40px;
+    margin-bottom : 40px;
+}
+
+
+/*-------------------------*/
+/* Présentation et contact */
+/*-------------------------*/
+/* décalage entre les images et le texte */
+.nav > ul > li span{
+    margin-left : 8px;
+}
+
+/* Style du nom et du prénom */
+.nav h2{
+    text-align    : center;
+    width         : var(--tailleNav);
+    margin-bottom : 0px;
+    margin-top    : 40px;
+}
+
+/* Décalage du statut (juste sous le nom) */
+.nav > span{
+    margin-left : 65px;
+}
+
+/* décalage des images et du texte */
+.nav > ul{
+    margin-left : 10px;
+    margin-top  : 60px;
+}
+
+
+/*-----------------------*/
+/* Maitrise des langages */
+/*-----------------------*/
+h3{
+    margin-left : var(--decalTitre);
+}
+
+/* Décalage de la liste des langages maitrisé */
+.skills > ul {
+    margin-left : 10px;
+}
+
+/* aligne les barres de progressions et les noms */
+.skills > ul > li {
+    display     : flex;
+    align-items : center;
+}
+
+/* aligne les barres de progressions entre elles */
+.skills > ul > li > span {
+    width : var(--tailleLangage);
+}
+
+/* Taille et couleur des ronds des langages */
+.skills div {
+    display       : inline-block;
+    width         : var(--tailleRond);
+    height        : var(--tailleRond);
+    border-radius : var(--tailleRond);
+    background    : var(--couleurRondVide);
+    margin-left   : 10px;
+}
+
+/* Couleur des ronds des langages quand le langage est maitrisé */
+.skills .aquis {
+    background : var(--couleurRondPlein);
+}
+
+/* Décalage entre les images des langages et les barres de progressions */
+.skills img{
+    margin-left : 30px;
+}
+
+
+/*==================*/
+/* Corps de la page */
+/*==================*/
+/*------------------------------*/
+/* Ensemble du corps de la page */
+/*------------------------------*/
+main {
+    margin-left  : var(--decalTitre);
+    margin-right : var(--decalPara);
+    color        : var(--couleurTxtEns);
+}
+
+/* Décalage des paragraphes */
+main p {
+    margin-left : var(--decalPara);
+}
+
+/* Ligne de séparation dans le corps de la page */
+main hr {
+    background-color : var(--CouleurNav);
+}
+
+
+/*----------------------------------------------*/
+/* Style des listes dans la section compétences */
+/*----------------------------------------------*/
+.competence ul {
+    padding-left : calc(var(--decalPara) + var(--decalTitre));
+    overflow     : hidden;
+    
+}
+
+.competence ul {
+    list-style-type: "\1F5F8";
+}
+
+.competence span {
+    margin-left: 5px;
+}
+
+
+/*----------------------------------------------------------------------*/
+/* Style des listes dans la section diplôme et experience professionnel */
+/*----------------------------------------------------------------------*/
+.diplome li, .experiencePro li {
+    list-style    : none;
+    position      : relative;
+    margin-bottom : var(--vgapList);
+}
+
+.diplome ul, .experiencePro ul {
+    padding-left : var(--decalPara);
+    overflow     : hidden;
+}
+
+/* Ronds devant le texte */
+.diplome li::before, .experiencePro li::before {
+    content       : "";
+    position      : absolute;
+    top           : 5px;
+    left          : -25px;
+    width         : 6px;
+    height        : 6px;
+    border-radius : 50%;
+    border        : 2px solid var(--CouleurNav);
+}
+
+/* Trais en dessous des ronds */
+.diplome li::after, .experiencePro li::after {
+    content    : "";
+    position   : absolute;
+    margin-top : -5px;
+    left       : -21px;
+    width      : 2px;
+    height     : calc(var(--vgapList) + 30px);
+    background : var(--CouleurNav);
+}
+
+/* Ajustement de la barre vertical pour l'obtention du bac */
+.bac > li::after {
+    margin-top : -23px;
+}
+
+/* Décalage des listes de la partie diplôme */
+.diplome ul {
+    padding-left : calc(var(--decalPara) + var(--decalTitre));
+}
+
+
+/*----------*/
+/* Passions */
+/*----------*/
+/* Taille des images */
+.passion img {
+    width       : var(--tailleImg);
+    margin-left : calc(calc(var(--tailleNav)/2) - calc(var(--tailleImg)/2));
+    text-align  : center;
+    margin-top  : 40px;
+}
+
+/* décalage vertical de la prmeière image */
+.first img {
+    margin-top: 0px;
+}
+
+/* Texte associé aux passions */
+.passion span {
+    width: var(--tailleNav);
+    /* text-align: center; */
+    margin-left : calc(calc(var(--tailleNav)/2) - calc(var(--tailleImg)/2));
+}
+
+
+
+/*===========*/
+/* Animation */
+/*===========*/
+a :hover{
+    font-size : calc(var(--tailleTxt) + 2px);
+}
+
+
+
+/*======*/
+/* test */
+/*======*/
+h1 {
+    text-align: center;
+}
